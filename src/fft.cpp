@@ -32,6 +32,16 @@ void fft::OnUpdate(float timestep)
   }
   renderer->End();
 
+  // render ui
+  uiRenderer->Begin();
+  if (ImGui::Begin("Settings"))
+  {
+    if (ImGui::Button("Clear Points (c)") || Vision::Input::KeyPress(SDL_SCANCODE_C))
+      positions.clear();
+  }
+  ImGui::End();
+  uiRenderer->End();
+
   // add points
   if (Vision::Input::MouseDown(SDL_BUTTON_LEFT))
   {
