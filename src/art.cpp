@@ -1,25 +1,25 @@
-#include "fft.h"
+#include "art.h"
 
 #include "core/Input.h"
 
 namespace fft
 {
 
-fft::fft()
+art::art()
 {
   uiRenderer = new Vision::ImGuiRenderer(m_DisplayWidth, m_DisplayHeight, m_DisplayScale);
   renderer = new Vision::Renderer2D(m_DisplayWidth, m_DisplayHeight, m_DisplayScale);
   camera = new Vision::OrthoCamera(m_DisplayWidth, m_DisplayHeight, 5.0f);
 }
 
-fft::~fft()
+art::~art()
 {
   delete uiRenderer;
   delete renderer;
   delete camera;
 }
 
-void fft::OnUpdate(float timestep)
+void art::OnUpdate(float timestep)
 {
   glClearColor(0.1f, 0.8f, 0.3f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
@@ -49,7 +49,7 @@ void fft::OnUpdate(float timestep)
   }
 }
 
-void fft::OnResize()
+void art::OnResize()
 {
   uiRenderer->Resize(m_DisplayWidth, m_DisplayHeight);
   renderer->Resize(m_DisplayWidth, m_DisplayHeight);

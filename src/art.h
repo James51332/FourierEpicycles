@@ -9,11 +9,11 @@
 namespace fft
 {
 
-class fft : public Vision::App
+class art : public Vision::App
 {
 public:
-  fft();
-  ~fft();
+  art();
+  ~art();
 
   void OnUpdate(float timestep);
   void OnResize();

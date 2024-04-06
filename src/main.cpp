@@ -1,8 +1,8 @@
-#include "fft.h"
+#include "art.h"
 
 int main()
 {
-  fft::fft* app = new fft::fft();
+  fft::art* app = new fft::art();
   app->Run();
   delete app;
 }
