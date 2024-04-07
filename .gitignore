@@ -7,3 +7,6 @@ build/
 
 # MacOS Files
 .DS_Store
+
+# ImGui
+.gitignore
