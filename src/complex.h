@@ -34,7 +34,7 @@ inline glm::vec2 mult(const glm::vec2& one, const glm::vec2& two)
 inline glm::vec2 exp(float theta)
 {
   // e^it = cos(t) + (sin(t))i
-  return { glm::sin(theta), glm::cos(theta) };
+  return { glm::cos(theta), glm::sin(theta) };
 }
 
 inline glm::vec2 polar(const glm::vec2 rect)

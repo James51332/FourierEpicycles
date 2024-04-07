@@ -8,7 +8,12 @@ set (CMAKE_CXX_STANDARD 20)
 set (CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Define the executable for the program
-add_executable(fft src/fft.cpp src/fft.h src/main.cpp)
+add_executable(fft src/art.cpp
+                   src/art.h
+                   src/main.cpp
+                   src/complex.h
+                   src/transform.cpp
+                   src/transform.h)
 
 target_include_directories(fft PRIVATE "src")
 
