@@ -80,11 +80,6 @@ void art::OnUpdate(float timestep)
       tracePoints.clear();
       freqs = transform::dft(positions);
     }
-
-    if (ImGui::DragInt("Max Circles", &maxCircles, 1.0, 1.0, 100.0))
-    {
-      tracePoints.clear();
-    }
   }
   ImGui::End();
   uiRenderer->End();
