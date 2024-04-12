@@ -27,27 +27,31 @@ art::~art()
 
 void art::OnUpdate(float timestep)
 {
-  glClearColor(0.1f, 0.8f, 0.3f, 1.0f);
+  glClearColor(0.1f, 0.2f, 0.1f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
 
   // camera
   if (Vision::Input::KeyDown(SDL_SCANCODE_P))
     camera->Update(timestep);
 
-  // render lines
+  // render
   renderer->Begin(camera);
-  for (int i = 0; i < positions.size(); i++)
-  {
-    renderer->DrawPoint(positions[i], glm::vec4(0.5f, 0.5f, 0.8f, 1.0f), 0.2f);
-  }
 
+  // draw trace
   for (int i = 0; i < static_cast<int>(tracePoints.size()) - 1; i++)
   {
-    renderer->DrawLine(tracePoints[i], tracePoints[(i + 1)], glm::vec4(1.0f), 0.1f);
+    renderer->DrawLine(tracePoints[i], tracePoints[(i + 1)], glm::vec4(0.5f, 0.5f, 0.5f, 1.0f), 0.1f);
+  }
+  if (tracePoints.size() > 0)
+    renderer->DrawPoint(tracePoints.back(), glm::vec4(1.0f), 0.2f);
+
+  // show our points
+  for (int i = 0; i < positions.size(); i++)
+  {
+    renderer->DrawPoint(positions[i], glm::vec4(1.0f), 0.2f);
   }
 
-  static int maxCircles = 50;
-  ShowFFT(freqs, SDL_GetTicks() * 2.0f * M_PI / 10000.0f, maxCircles);
+  ShowFFT(freqs, SDL_GetTicks() * 2.0f * M_PI / 4000.0f, 0);
   renderer->End();
 
   // render ui
